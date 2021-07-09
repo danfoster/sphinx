@@ -185,7 +185,7 @@ class Table:
                 continue
             width = math.ceil(max(column_width(x) for x in cell.wrapped) / cell.colspan)
             for col in range(cell.col, cell.col + cell.colspan):
-                self.measured_widths[col] = max(self.measured_widths[col], width)
+                self.measured_widths[col] = int(max(self.measured_widths[col], width))
 
     def physical_lines_for_line(self, line: List[Cell]) -> int:
         """From a given line, compute the number of physical lines it spans
